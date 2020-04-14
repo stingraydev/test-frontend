@@ -1,4 +1,5 @@
 # Тестовое задание на позицию стажера в программе Frontend School компании T-Systems
+#### Город: Санкт-Петербург
 #### Дата вакансии: 12.07.2019
 
 #### Описание задачи:
@@ -34,7 +35,7 @@ One more thing: be brave and creative :)
 We are waiting for you to join our team!
 
 #### Ссылки:
-- <a target="_blank" href="https://docs.google.com/document/d/1CDCRrysvDINK1IR4PZFao4KTjUJ7YXR69CDT_JRLjI4/edit">Описание
+- <a target="_blank" href="https://gitlab.com/index241195/fe-school-testing">Описание
 </a> 
 
 
