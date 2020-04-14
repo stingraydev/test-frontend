@@ -18,7 +18,7 @@
 - Дополнительные фичи к форме, не указанные в задании (например определение платежной системы по первым цифрам номера карты и вывод на экран).
 
 ##### Ссылки:
-- <a href="https://docs.google.com/document/d/1CDCRrysvDINK1IR4PZFao4KTjUJ7YXR69CDT_JRLjI4/edit">Описание
+- <a target="_blank" href="https://docs.google.com/document/d/1CDCRrysvDINK1IR4PZFao4KTjUJ7YXR69CDT_JRLjI4/edit">Описание
 </a> 
 
 
