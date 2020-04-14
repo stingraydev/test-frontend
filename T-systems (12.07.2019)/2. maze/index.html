@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go through the MAZE</title>
+    <style>
+        body {
+            background-color: palegreen;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+
+        .result {
+            display: inline-block;
+            color: red;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+
+        .result--success {
+            color: green;
+        }
+
+        .start {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .field {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            background-color: white;
+            width: 500px;
+            height: 500px;
+            float: left;
+        }
+
+        .field__cell {
+            flex-basis: 50px;
+            height: 50px;
+            box-shadow: inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--up {
+            box-shadow: 0 -4px 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--up-right {
+            box-shadow: 0 -4px 0 0 black, 4px 0 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--up-left {
+            box-shadow: 0 -4px 0 0 black, -4px 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--right {
+            box-shadow: 4px 0 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--down {
+            box-shadow: 0 4px 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--down-right {
+            box-shadow: 0 4px 0 0 black, 4px 0 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--down-left {
+            box-shadow: 0 4px 0 0 black, -4px 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--left {
+            box-shadow: -4px 0 0 black, inset 0 0 0 1px palegreen;
+        }
+
+        .field__cell--target:after {
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            background-color: darkorange;
+            opacity: 0.5;
+        }
+
+        .piece {
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+        }
+
+        .piece:before, .piece:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -15px;
+        }
+
+        .piece:after {
+            background-color: darkorange;
+            border-radius: 7px;
+            z-index: 1;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0 0 0 3px darkorange;
+            margin-top: -15px;
+        }
+
+        .piece:before {
+            background-color: transparent;
+            z-index: 2;
+            border: solid 15px transparent;
+            width: 0;
+            height: 0;
+            border-bottom: solid 15px white;
+            margin-top: -25px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="field">
+    <div class="piece" style="top: 0; left: 0; display: none;"></div>
+    <div class="field__cell field__cell--up-left"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up-right"></div>
+
+    <div class="field__cell field__cell--up-left"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up-right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--up-left"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up-right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--up-left"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up-right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--up-left"></div>
+    <div class="field__cell field__cell--up"></div>
+    <div class="field__cell field__cell--up-right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--up-left"></div>
+    <div class="field__cell field__cell--down-right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--down-left"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down-right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--down-left"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down-right"></div>
+    <div class="field__cell field__cell--right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--left"></div>
+    <div class="field__cell field__cell--down-left"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down-right"></div>
+    <div class="field__cell field__cell--right"></div>
+
+    <div class="field__cell field__cell--left field__cell--target"></div>
+    <div class="field__cell field__cell--down-left"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down"></div>
+    <div class="field__cell field__cell--down-right"></div>
+</div>
+
+<div class="controls">
+    <div>
+        <button class="start">Start</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<script>
+    const successResult = 'success!';
+    const failResult = 'fail!';
+    const successModifier = 'result--success';
+    const start = document.querySelector('.start');
+    const result = document.querySelector('.result');
+    const fieldElement = document.querySelector('.field');
+    const cellsElements = document.querySelectorAll('.field__cell');
+    const pieceElement = document.querySelector('.piece');
+    const directionNames = ['up', 'right', 'down', 'left'];
+    let stepper;
+
+    class Field {
+        constructor() {
+            this.field = fieldElement;
+            this.cells = cellsElements;
+            this.opposites = {
+                'up': 'down',
+                'down': 'up',
+                'left': 'right',
+                'right': 'left'
+            }
+        }
+
+        onTheSameRow(current, next) {
+            return (current - current % 10) / 10 === (next - next % 10) / 10
+        }
+
+        findNextCell(currentIndex, direction) {
+            let nextIndex = currentIndex;
+
+            switch (direction) {
+                case 'up':
+                    nextIndex = currentIndex - 10;
+                    if (nextIndex < 0) {
+                        nextIndex = -1;
+                    }
+                    break;
+
+                case 'right':
+                    nextIndex = currentIndex + 1;
+                    if (!this.onTheSameRow(currentIndex, nextIndex)) {
+                        nextIndex = -1;
+                    }
+                    break;
+
+                case 'down':
+                    nextIndex = currentIndex + 10;
+                    if (nextIndex > 100) {
+                        nextIndex = -1;
+                    }
+                    break;
+
+                case 'left':
+                    nextIndex = currentIndex - 1;
+                    if (!this.onTheSameRow(currentIndex, nextIndex)) {
+                        nextIndex = -1;
+                    }
+                    break;
+
+                default:
+                    nextIndex = -1;
+                    break;
+            }
+
+            return this.cells[nextIndex];
+        }
+
+        isTheWallThere(position, direction) {
+            let cellIndex = position.top * 10 + position.left;
+            let cell = this.cells[cellIndex];
+            let nextCell = this.findNextCell(cellIndex, direction);
+
+            return (
+                (cell.classList.toString().indexOf(direction) !== -1) ||
+                (typeof nextCell === 'undefined') ||
+                (nextCell.classList.toString().indexOf(this.opposites[direction]) !== -1)
+            );
+        }
+    }
+
+    function createPiece () {
+
+        let field = new Field();
+
+        let rotatePiece = direction => {
+            let dir = direction;
+            moves.unshift(function () {
+                pieceElement.style.transform = 'rotate(' + dir * 90 + 'deg)';
+            })
+        };
+
+        let movePiece = position => {
+            let top = (position.top) * 50;
+            let left = (position.left) * 50;
+
+            moves.unshift(function () {
+                pieceElement.style.top = top + 'px';
+                pieceElement.style.left = left + 'px';
+            })
+        };
+
+        let isPieceOut = () => {
+            return pieceElement.style.top === '450px' && pieceElement.style.left === '0px';
+        };
+
+        let direction = Math.floor(Math.random() * directionNames.length);
+        let stepsCount = 0;
+        let turnsCount = 0;
+        let moves = [];
+        let position = {
+            left: Math.floor(Math.random() * 10),
+            top: Math.floor(Math.random() * 10)
+        };
+
+        let piecePublicApi = {
+            isThereWay() {
+                const isTheWallThere = field.isTheWallThere(position, directionNames[direction]);
+                return !isTheWallThere
+            },
+
+            turnLeft() {
+                turnsCount += 1;
+                direction -= 1;
+                direction = direction < 0 ? 3 : direction;
+                rotatePiece(direction);
+            },
+
+            turnRight() {
+                turnsCount += 1;
+                direction += 1;
+                direction = direction > 3 ? 0 : direction;
+                rotatePiece(direction);
+            },
+
+            goForward() {
+                stepsCount += 1;
+                if (!this.isThereWay()) {
+                    return false;
+                }
+
+                switch (direction) {
+                    case 0:
+                        position.top -= 1;
+                        break;
+                    case 1:
+                        position.left += 1;
+                        break;
+                    case 2:
+                        position.top += 1;
+                        break;
+                    case 3:
+                        position.left -= 1;
+                        break;
+                    default:
+                        return false
+                }
+
+                movePiece(position);
+            },
+            amIFree() {
+                return isPieceOut();
+            }
+        };
+
+        stepper = setInterval(() => {
+
+            let nextMove = moves.pop();
+
+            if (typeof nextMove === 'function') {
+                nextMove();
+            } else {
+                let success = isPieceOut();
+
+                if (success) {
+                    result.textContent = successResult;
+                    result.classList.add(successModifier);
+                } else {
+                    result.textContent = failResult;
+                    result.classList.remove(successModifier);
+                }
+
+                clearInterval(stepper);
+                console.log({stepsCount, turnsCount});
+            }
+        }, 200);
+
+        pieceElement.style.top = position.top * 50 + 'px';
+        pieceElement.style.left = position.left * 50 + 'px';
+        pieceElement.style.transform = 'rotate(' + direction * 90 + 'deg)';
+        pieceElement.style.display = 'block';
+
+        return piecePublicApi;
+    }
+
+    function resetField() {
+        clearInterval(stepper);
+        result.textContent = '';
+        result.classList.remove(successModifier);
+    }
+
+    function escapePlan() {
+        const piece = createPiece();
+        // piece.isThereWay();
+        // piece.goForward();
+        // piece.turnRight();
+        // piece.turnLeft();
+        // piece.amIFree();
+    }
+
+    function main() {
+        resetField();
+        escapePlan();
+    }
+
+    start.addEventListener('click', main);
+
+</script>
+</body>
+</html>

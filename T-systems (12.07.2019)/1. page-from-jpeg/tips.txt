@@ -1,0 +1,17 @@
+Font: Arial, 12, 15, 18, 21, 36 px 
+
+Image heights: 
+Header: 200px
+Logo: 142px
+Contact: 48px
+Follow us: 24px
+Item-logo: 80px
+icons: 18px 
+
+colors: #5A4D99, #BFCC36, #1A587A, #FFA500, #009DF2
+
+text-colors: #383838, #757575
+
+margins, paddings: 6, 12, 18, 24, 30, 36, 48px
+
+container max-width: 984px

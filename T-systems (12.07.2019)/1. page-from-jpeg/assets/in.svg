@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="24px" viewBox="0 0 23 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>DD6056AD-764D-4670-93B5-FA2602D88279</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M20.1250007,12.1853464 L20.1250007,19.8749993 L15.8115614,19.8749993 L15.8115614,12.700353 C15.8115614,10.8980233 15.187669,9.66800385 13.6263469,9.66800385 C12.4344756,9.66800385 11.7251921,10.4969469 11.4131523,11.2988097 C11.29936,11.5854725 11.2700697,11.9844696 11.2700697,12.3857396 L11.2700697,19.8749993 L6.95517996,19.8749993 C6.95517996,19.8749993 7.01329264,7.72350337 6.95517996,6.46451777 L11.2696486,6.46451777 L11.2696486,8.36539985 C11.2608989,8.37961693 11.2495291,8.39494624 11.2412941,8.4087281 L11.2696486,8.4087281 L11.2696486,8.36539985 C11.8428679,7.45294357 12.8665775,6.14946914 15.1579576,6.14946914 C17.9968227,6.14942078 20.1250007,8.06616409 20.1250007,12.1853464 Z M2.44162133,0 C0.965503252,0 0,1.00066029 0,2.31656266 C0,3.60378908 0.937569865,4.63481784 2.38435087,4.63481784 L2.41317326,4.63481784 C3.91787978,4.63481784 4.85367164,3.60398251 4.85367164,2.31656266 C4.82531715,1.00066029 3.91787978,0 2.44162133,0 Z M0.256266613,19.8750007 L4.56951855,19.8750007 L4.56951855,6.46451783 L0.256266613,6.46451783 L0.256266613,19.8750007 Z" id="path-1"></path>
+    </defs>
+    <g id="#7-Organization-Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Protected---Profile---S-" transform="translate(-19.000000, -1346.000000)">
+            <rect fill="#F8F8F8" x="0" y="0" width="336" height="2771"></rect>
+            <g id="Profil" transform="translate(0.000000, 81.000000)">
+                <rect id="Rectangle-7" fill="#FFFFFF" fill-rule="nonzero" x="0" y="37" width="337" height="1439"></rect>
+                <g id="SocialMedia/Links-Copy-4" transform="translate(18.000000, 1265.000000)">
+                    <g id="SocialMedia/Links" transform="translate(1.000000, 0.000000)">
+                        <g id="Icons/barbecue/solid">
+                            <g id="-↳-icon🎨" transform="translate(1.796875, 2.250000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                <g mask="url(#mask-2)" fill="#262626" id="Rectangle-2">
+                                    <g transform="translate(-1.847187, -2.295000)">
+                                        <rect x="0" y="0" width="23.4599996" height="24.4799995"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
