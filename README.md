@@ -15,10 +15,10 @@
   * [Web-разработчик (PHP, JS) / 28.10.2019](https://github.com/OWIII/test-frontend/tree/master/BeeJee%20(28.10.2019))
 
 * [Cake](https://cake.ru/)
-  * [Верстальщик / Frontend-разработчик / 11.02.2020](https://github.com/OWIII/test-frontend/tree/master/BeeJee%20(28.10.2019))?
+  * [Верстальщик / Frontend-разработчик / 11.02.2020](https://github.com/OWIII/test-frontend/tree/master/Cake%20(11.02.2020))
 
 * [CookieSide](https://cookieside.ru/)
-  * [HTML-верстальщик / 09.12.2019](https://github.com/OWIII/test-frontend/tree/master/BeeJee%20(28.10.2019))?
+  * [HTML-верстальщик / 09.12.2019](https://github.com/OWIII/test-frontend/tree/master/CookieSide%20(09.12.2019))
 
 * [iDex Group](https://www.idexgroup.ru/)
   * [HTML-верстальщик / Frontend разработчик / 25.10.2019](https://github.com/OWIII/test-frontend/tree/master/iDex%20Group%20(25.10.2019))
