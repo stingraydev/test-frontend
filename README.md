@@ -42,7 +42,7 @@
   * [Верстальщик / 12.02.2020](https://github.com/OWIII/test-frontend/tree/master/UpTrader(12.02.2020))
 
 * [VoxWeb Interactive](https://voxweb.ru/)
-  * [Frontend-разработчик / HTML-верстальщик / 01.03.2020](https://github.com/OWIII/test-frontend/tree/master/US%20Studio%20(31.07.2019))!
+  * [Frontend-разработчик / HTML-верстальщик / 01.03.2020](https://github.com/OWIII/test-frontend/tree/master/VoxWeb%20Interactive(01.03.2020))
 
 * [Светлые головы](https://claramente.ru/)
   * [Frontend Developer / 22.11.2019](https://github.com/OWIII/test-frontend/tree/master/%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D1%8B%D0%B5%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20(22.11.2019))
