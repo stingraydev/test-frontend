@@ -23,6 +23,9 @@
 * [iDex Group](https://www.idexgroup.ru/)
   * [HTML-верстальщик / Frontend разработчик / 25.10.2019](https://github.com/OWIII/test-frontend/tree/master/iDex%20Group%20(25.10.2019))
 
+* [Fitness House](https://www.fitnesshouse.ru/)
+  * [Frontend разработчик / 21.02.2020](https://github.com/OWIII/test-frontend/tree/master/Fitness%20House(21.02.2020))
+
 * [Kelnik](https://kelnik.ru/)
   * [HTML-верстальщик / 16.08.2019](https://github.com/OWIII/test-frontend/tree/master/Kelnik%20studios%20(%2016.08.2019))
 
@@ -37,6 +40,9 @@
 
 * [UpTrader](https://uptrader.io/en/)
   * [Верстальщик / 12.02.2020](https://github.com/OWIII/test-frontend/tree/master/UpTrader(12.02.2020))
+
+* [VoxWeb Interactive](https://voxweb.ru/)
+  * [Frontend-разработчик / HTML-верстальщик / 01.03.2020](https://github.com/OWIII/test-frontend/tree/master/US%20Studio%20(31.07.2019))!
 
 * [Светлые головы](https://claramente.ru/)
   * [Frontend Developer / 22.11.2019](https://github.com/OWIII/test-frontend/tree/master/%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D1%8B%D0%B5%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B%20(22.11.2019))
